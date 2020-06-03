@@ -1,0 +1,30 @@
+{
+  "name": "briqassignment",
+  "version": "0.0.1",
+  "description": "This is the assignment to showcase work pattern",
+  "productName": "Briq Assignment",
+  "cordovaId": "com.avirathi.briq",
+  "capacitorId": "",
+  "author": "Avinash Singh Rathi",
+  "private": true,
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.0.0",
+    "axios": "^0.18.1",
+    "keyword-extractor": "0.0.19",
+    "quasar": "^1.0.0"
+  },
+  "devDependencies": {
+    "@quasar/app": "^1.0.0"
+  },
+  "engines": {
+    "node": ">= 10.18.1",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  },
+  "browserslist": [
+    "last 1 version, not dead, ie >= 11"
+  ]
+}
