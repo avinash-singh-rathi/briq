@@ -50,13 +50,14 @@ Function to process the array in queue
 const ProcessArray = (data,handler, callback,state,commit) =>{
 	let maxtime = 100;		// chunk processing time
   	let delay = 20;		// delay between processes
-  	let queue = data.concat();
+  	let queue = [...data];
 
   	let process = function() {
 	    var endtime = +new Date() + maxtime;
 	    
 	    do {
-	      handler(Object.assign({}, queue.shift()),commit);
+        let quote=Object.assign({}, queue.shift());
+	      handler(quote,commit);
 	    } while (queue.length > 0 && endtime > +new Date());
 	    
 	    if (queue.length > 0) {
@@ -72,8 +73,8 @@ const ProcessArray = (data,handler, callback,state,commit) =>{
 }
 
 //Function to process the individual quote, extract keyword and add keyword to it
-const ProcessQuotes = (quote,commit) => {
-	 			let keywords=extractMe(quote.en);
+const ProcessQuotes = (quote) => {
+	 			let keywords=[...extractMe(quote.en)];
     			quote.keywords=[...keywords];
     			quotesdata.push(quote);
     			keywords.forEach(keyword => {
@@ -81,13 +82,15 @@ const ProcessQuotes = (quote,commit) => {
     				if(!quotekeywords[keyword]){
     					quotekeywords[keyword]=[];	
     				}
-    				quotekeywords[keyword].push(index);    				
+    				let a = [...quotekeywords[keyword]];
+            a.push(index);
+            quotekeywords[keyword]=[...a];    				
     			});
     			//commit('SetQuote',quote);
 }
 
 //function to process Quote with Google NLP
-const ProcessNLPQuotes = (quote,commit) => {
+const ProcessNLPQuotes = (quote) => {
 	let nlp = new NLP( process.env.GoogleNLP)
 	nlp.analyzeEntities( quote )
     .then(function( entities ) {
@@ -98,6 +101,8 @@ const ProcessNLPQuotes = (quote,commit) => {
     				if(!quotekeywords[keyword]){
     					quotekeywords[keyword]=[];	
     				}
+            let a = [...quotekeywords[keyword]];
+            a.push(index);
     				quotekeywords[keyword].push(index);    				
     			});
 

@@ -18,7 +18,7 @@
                   <q-btn size="xl" class="q-mx-lg q-my-lg full-width" color="primary" icon="ion-logo-googleplus" label="Login using Google" @click="onLogin('Google')" />
                   <q-btn size="xl" class="q-mx-lg q-my-lg full-width" color="primary" icon="ion-logo-github" label="Login using Github" @click="onLogin('Github')" />
                 </q-card-actions>
-                <q-btn class="text-primary" to="/" label="Skip" />
+                <q-btn class="text-primary" to="/quotes" label="Skip" />
               </q-card>
             </form>
           </div>

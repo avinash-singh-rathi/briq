@@ -16,7 +16,8 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue'),name: 'home',meta: { auth: false }, }
+      { path: '', component: () => import('pages/Index.vue'),name: 'home',meta: { auth: true }, },
+      { path: '/quotes', component: () => import('pages/Index.vue'),name: 'quotes',meta: { auth: false }, }
     ]
   }
 ]
