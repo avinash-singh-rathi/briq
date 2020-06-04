@@ -64,8 +64,10 @@ module.exports = function ( ctx ) {
       // extractCSS: false,
       env: ctx.dev ? { // so on dev we'll have
           API: JSON.stringify('https://programming-quotes-api.herokuapp.com/'),
+          GoogleNLP: JSON.stringify(''),
         } : { // and on build (production):
-          API: JSON.stringify('https://programming-quotes-api.herokuapp.com/')
+          API: JSON.stringify('https://programming-quotes-api.herokuapp.com/'),
+          GoogleNLP: JSON.stringify(''),
       },
 
       // https://quasar.dev/quasar-cli/cli-documentation/handling-webpack
